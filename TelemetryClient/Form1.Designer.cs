@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.connectBtn = new System.Windows.Forms.Button();
             this.commboBox = new System.Windows.Forms.ComboBox();
             this.errorTextBox = new System.Windows.Forms.TextBox();
@@ -52,8 +52,9 @@
             this.apogeeLabel = new System.Windows.Forms.Label();
             this.latLabel = new System.Windows.Forms.Label();
             this.lngLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.rssiLabel = new System.Windows.Forms.Label();
             this.followOption = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.consoleSplitContainer)).BeginInit();
             this.consoleSplitContainer.Panel1.SuspendLayout();
             this.consoleSplitContainer.Panel2.SuspendLayout();
@@ -141,6 +142,7 @@
             // 
             // dataSplitContainer.Panel1
             // 
+            this.dataSplitContainer.Panel1.Controls.Add(this.button1);
             this.dataSplitContainer.Panel1.Controls.Add(this.chart);
             // 
             // dataSplitContainer.Panel2
@@ -155,36 +157,36 @@
             this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "AltitudeChartArea";
-            chartArea6.Name = "AccelerationChart";
-            this.chart.ChartAreas.Add(chartArea5);
-            this.chart.ChartAreas.Add(chartArea6);
-            legend3.Name = "Legend1";
-            this.chart.Legends.Add(legend3);
+            chartArea3.Name = "AltitudeChartArea";
+            chartArea4.Name = "AccelerationChart";
+            this.chart.ChartAreas.Add(chartArea3);
+            this.chart.ChartAreas.Add(chartArea4);
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
             this.chart.Location = new System.Drawing.Point(3, 3);
             this.chart.Name = "chart";
-            series7.BorderWidth = 3;
-            series7.ChartArea = "AltitudeChartArea";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series7.Legend = "Legend1";
-            series7.Name = "Altitude";
-            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
-            series8.BorderWidth = 3;
-            series8.ChartArea = "AltitudeChartArea";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series8.Legend = "Legend1";
-            series8.Name = "RSSI";
-            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
-            series8.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            series9.BorderWidth = 3;
-            series9.ChartArea = "AccelerationChart";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series9.Legend = "Legend1";
-            series9.Name = "Acceleration";
-            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
-            this.chart.Series.Add(series7);
-            this.chart.Series.Add(series8);
-            this.chart.Series.Add(series9);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "AltitudeChartArea";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series4.Legend = "Legend1";
+            series4.Name = "Altitude";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
+            series5.BorderWidth = 3;
+            series5.ChartArea = "AltitudeChartArea";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series5.Legend = "Legend1";
+            series5.Name = "RSSI";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
+            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series6.BorderWidth = 3;
+            series6.ChartArea = "AccelerationChart";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series6.Legend = "Legend1";
+            series6.Name = "Acceleration";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Time;
+            this.chart.Series.Add(series4);
+            this.chart.Series.Add(series5);
+            this.chart.Series.Add(series6);
             this.chart.Size = new System.Drawing.Size(710, 344);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
@@ -202,8 +204,8 @@
             this.map.LevelsKeepInMemmory = 5;
             this.map.Location = new System.Drawing.Point(3, 3);
             this.map.MarkersEnabled = true;
-            this.map.MaxZoom = 18;
-            this.map.MinZoom = -5;
+            this.map.MaxZoom = 23;
+            this.map.MinZoom = 0;
             this.map.MouseWheelZoomEnabled = true;
             this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.map.Name = "map";
@@ -216,7 +218,7 @@
             this.map.ShowTileGridLines = false;
             this.map.Size = new System.Drawing.Size(350, 341);
             this.map.TabIndex = 0;
-            this.map.Zoom = 2D;
+            this.map.Zoom = 0D;
             // 
             // outputBox
             // 
@@ -233,7 +235,7 @@
             // 
             // receiverPort
             // 
-            this.receiverPort.BaudRate = 11520;
+            this.receiverPort.BaudRate = 115200;
             this.receiverPort.PortName = "COM4";
             this.receiverPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.receiverPort_DataReceived);
             // 
@@ -297,15 +299,15 @@
             this.lngLabel.TabIndex = 11;
             this.lngLabel.Text = "Longitude:";
             // 
-            // label1
+            // rssiLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(89, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "RSSI:";
+            this.rssiLabel.AutoSize = true;
+            this.rssiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rssiLabel.Location = new System.Drawing.Point(89, 36);
+            this.rssiLabel.Name = "rssiLabel";
+            this.rssiLabel.Size = new System.Drawing.Size(57, 20);
+            this.rssiLabel.TabIndex = 12;
+            this.rssiLabel.Text = "RSSI:";
             // 
             // followOption
             // 
@@ -319,13 +321,24 @@
             this.followOption.Text = "Auto Follow";
             this.followOption.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(638, 321);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 592);
             this.Controls.Add(this.followOption);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.rssiLabel);
             this.Controls.Add(this.lngLabel);
             this.Controls.Add(this.latLabel);
             this.Controls.Add(this.apogeeLabel);
@@ -376,8 +389,9 @@
         private System.Windows.Forms.Label apogeeLabel;
         private System.Windows.Forms.Label latLabel;
         private System.Windows.Forms.Label lngLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label rssiLabel;
         private System.Windows.Forms.CheckBox followOption;
+        private System.Windows.Forms.Button button1;
     }
 }
 

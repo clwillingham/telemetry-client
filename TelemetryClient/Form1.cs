@@ -12,11 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace TelemetryClient
 {
     public partial class Form1 : Form
     {
+
+        float apogee = 0;
+        int last_id = 0;
         public Form1()
         {
             InitializeComponent();
@@ -49,23 +53,45 @@ namespace TelemetryClient
             string line = receiverPort.ReadLine();
 
             Console.WriteLine(line);
-            File.AppendAllText(outputBox.Text, line + "\n");
+            File.AppendAllText(outTextBox.Text, line + "\n");
 
             outputBox.Invoke(new MethodInvoker(delegate
             {
                 outputBox.Text += line + "\n";
+                outputBox.SelectionStart = outputBox.TextLength;
+                outputBox.ScrollToCaret();
             }));
             try
             {
                 Packet packet = JsonConvert.DeserializeObject<Packet>(line);
 
-                idLabel.Text = "ID: " + packet.id;
-                altitudeLabel.Text = "Altitude: " + packet.altitude;
-                accelerationLabel.Text = "Acceleration: " + packet.acceleration;
-                latLabel.Text = "Latitude: "  + packet.lat;
-                lngLabel.Text = "Longitude: " + packet.lng;
+                
 
-                map.Position = new PointLatLng(packet.lat, packet.lng);
+                
+
+
+                Invoke(new MethodInvoker(delegate
+                {
+                    idLabel.Text = "ID: " + packet.id;
+                    rssiLabel.Text = "RSSI: " + packet.rssi;
+                    altitudeLabel.Text = "Altitude: " + packet.altitude;
+                    accelerationLabel.Text = "Acceleration: " + packet.acceleration;
+                    latLabel.Text = "Latitude: " + packet.lat;
+                    lngLabel.Text = "Longitude: " + packet.lng;
+
+                    if (packet.altitude > apogee)
+                    {
+                        apogee = packet.altitude;
+                        apogeeLabel.Text = "Apogee: " + apogee;
+                    }
+
+                    map.Position = new PointLatLng(packet.lat, packet.lng);
+
+                    chart.Series["Altitude"].Points.AddXY(DateTime.Now.ToOADate(), packet.altitude);
+                    chart.Series["Acceleration"].Points.AddXY(DateTime.Now.ToOADate(), packet.altitude);
+                    chart.Series["RSSI"].Points.AddXY(DateTime.Now.ToOADate(), packet.rssi);
+                }));
+                
             }
             catch
             {
@@ -87,6 +113,17 @@ namespace TelemetryClient
                 receiverPort.Open();
                 connectBtn.Text = "Close";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Invoke(new MethodInvoker(delegate
+            {
+                foreach(Series series in chart.Series)
+                {
+                    series.Points.Clear();
+                }
+            }));
         }
     }
 }

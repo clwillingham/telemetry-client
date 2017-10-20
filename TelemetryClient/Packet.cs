@@ -9,6 +9,7 @@ namespace TelemetryClient
     class Packet
     {
         public uint id;
+        public int rssi;
         public float altitude;
         public float acceleration;
         public float lat;
